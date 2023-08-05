@@ -1,3 +1,20 @@
+
+const btnRock = document.querySelector('button#btnRock');
+const btnPaper = document.querySelector('button#btnPaper');
+const btnScissors = document.querySelector('button#btnScissors');
+
+btnRock.addEventListener("click",() => {
+    playRound('Rock');
+    });
+
+btnPaper.addEventListener("click",() => {
+    playRound('Paper');
+    });
+
+btnScissors.addEventListener("click",() => {
+    playRound('Scissors');
+    });
+
 function getComputerChoice(){
     // return string with one of the three options
     let intRandom = getRandomInt(3)
@@ -18,82 +35,6 @@ function getComputerChoice(){
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
-}
-
-function game(){
-    //5 round game of rock paper scissors
-    //keep score and report winner at end
-
-    //variables
-    let intComputerScore = 0;
-    let intUserScore = 0;
-
-    //get user prompt
-    switch(playRound(prompt("Rock paper or scissors?"))){
-        case 0: //user wins
-            intUserScore = intUserScore + 1;
-            break;
-        case 1: //computer wins
-            intComputerScore = intComputerScore + 1;
-            break;
-        case 3: 
-            //draw: do nothing
-    }
-
-        switch(playRound(prompt("Rock paper or scissors?"))){
-        case 0: //user wins
-            intUserScore = intUserScore + 1;
-            break;
-        case 1: //computer wins
-            intComputerScore = intComputerScore + 1;
-            break;
-        case 3: 
-            //draw: do nothing
-    }
-
-        switch(playRound(prompt("Rock paper or scissors?"))){
-        case 0: //user wins
-            intUserScore = intUserScore + 1;
-            break;
-        case 1: //computer wins
-            intComputerScore = intComputerScore + 1;
-            break;
-        case 3: 
-            //draw: do nothing
-    }
-
-        switch(playRound(prompt("Rock paper or scissors?"))){
-        case 0: //user wins
-            intUserScore = intUserScore + 1;
-            break;
-        case 1: //computer wins
-            intComputerScore = intComputerScore + 1;
-            break;
-        case 3: 
-            //draw: do nothing
-    }
-
-        switch(playRound(prompt("Rock paper or scissors?"))){
-        case 0: //user wins
-            intUserScore = intUserScore + 1;
-            break;
-        case 1: //computer wins
-            intComputerScore = intComputerScore + 1;
-            break;
-        case 3: 
-            //draw: do nothing
-    }
-
-    if (intUserScore > intComputerScore){
-        console.log ("You win! You scored: " + intUserScore + " to Computer: " + intComputerScore)
-        } 
-        else if (intUserScore < intComputerScore){
-        console.log ("You Lose! You scored: " + intUserScore + " to Computer: " + intComputerScore)
-        }
-        else {
-        console.log ("You drew. You scored: " + intUserScore + " to Computer: " + intComputerScore)
-        }
-    
 }
 
 function playRound(getUserChoice){
