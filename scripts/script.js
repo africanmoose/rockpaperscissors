@@ -3,8 +3,11 @@ const btnRock = document.querySelector('button#btnRock');
 const btnPaper = document.querySelector('button#btnPaper');
 const btnScissors = document.querySelector('button#btnScissors');
 
+
 btnRock.addEventListener("click",() => {
-    playRound('Rock');
+    
+    playRound('Rock')
+
     });
 
 btnPaper.addEventListener("click",() => {
@@ -15,6 +18,10 @@ btnScissors.addEventListener("click",() => {
     playRound('Scissors');
     });
 
+function updateResultsPanel(strText) {
+    const displayResultsPanel = document.getElementById("resultDisplayPanel");
+    displayResultsPanel.textContent=strText 
+}
 function getComputerChoice(){
     // return string with one of the three options
     let intRandom = getRandomInt(3)
@@ -73,7 +80,7 @@ function playRound(getUserChoice){
         }
     
     //output to console
-    getPrettyMessage(intComputerWin, strComputerChoice, strUserChoice);
+    updateResultsPanel(getPrettyMessage(intComputerWin, strComputerChoice, strUserChoice));
     return intComputerWin;
 
 }
@@ -82,11 +89,14 @@ function getPrettyMessage(intMessageNumber, strComputerChoice, strUserChoice){
     switch (intMessageNumber) {
         case 0: //user wins
             console.log("you win! " + strUserChoice + " beats " + strComputerChoice);
+            return ("You win! " + strUserChoice + " beats " + strComputerChoice);
             break;
         case 1: //user loses
             console.log("you lose! " + strComputerChoice + " beats " + strUserChoice);
+            return ("You lose! " + strComputerChoice + " beats " + strUserChoice);
             break;
         case 2: //draw
             console.log("you draw, try again. You both chose " + strComputerChoice);
+            return ("You draw, try again. You both chose " + strComputerChoice);
         }
 }   
